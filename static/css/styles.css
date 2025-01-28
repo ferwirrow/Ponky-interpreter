@@ -1,0 +1,133 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para la barra lateral del manual */
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #222;
+    color: #f0f0f0;
+    border-right: 2px solid #444;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar li strong {
+    color: #4CAF50;
+}
+
+.sidebar code {
+    background-color: #444;
+    color: #ffeb3b;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    margin-left: 320px; /* Deja espacio para la barra lateral */
+    padding: 20px;
+    margin-right: 20px; /* Para no tocar el borde derecho */
+}
+
+/* Estilo para la sección de código */
+.content {
+    margin-left: 10px;
+}
+
+/* Hacer que el área de texto para código se vea más grande */
+textarea {
+    width: 100%;
+    height: 300px;
+    font-family: monospace;
+    font-size: 1.1em;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    resize: vertical;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Botón de ejecutar */
+.btn-ejecutar {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-ejecutar:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para la sección de resultados */
+.resultado {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #bbb;
+}
+
+/* Estilo para el header */
+header {
+    text-align: center; /* Centra el texto */
+    padding: 50px 0; /* Espaciado superior e inferior para separar del contenido */
+    background-color: #444; /* Fondo oscuro */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 30px; /* Espacio inferior para separar del resto de la página */
+}
+
+/* Estilo para el título principal */
+header h1 {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el párrafo debajo del título */
+header p {
+    font-size: 1.2em;
+    color: #f0f0f0;
+    margin-top: 0;
+}
+

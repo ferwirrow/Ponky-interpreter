@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponky - Intérprete de Código</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>¡Bienvenido a Ponky!</h1>
+            <p>El intérprete que transforma tu código en magia.</p>
+        </header>
+
+        <!-- Barra lateral de manual -->
+        <aside class="sidebar">
+            <h2>Manual de Uso</h2>
+            <ul>
+                <li><strong>Asignación</strong>: :=</li>
+                <li><strong>Definición de funciones</strong>: <code>func function_name(params) ... end</code></li>
+                <li><strong>Retorno de valores</strong>: <code>ret value</code></li>
+                <li><strong>Condicionales</strong>: <code>if condition then ... end</code></li>
+                <li><strong>Ciclos for</strong>: <code>for variable := start, end do ... end</code></li>
+                <li><strong>Operadores</strong>: :=, ^, *, /, %, ==</li>
+                <li><strong>Funciones trigonométricas</strong>: <code>sin(a)</code> y <code>cos(a)</code></li>
+                <li><strong>Recursión</strong>: Funciones que se llaman a sí mismas</li>
+                <li><strong>Impresión</strong>: <code>println("message" + value)</code></li>
+                <li><strong>Llamada a funciones</strong>: <code>function_name(params)</code></li>
+            </ul>
+        </aside>
+
+        <!-- Contenedor principal de código -->
+        <section class="content">
+            <textarea id="codigo" placeholder="Escribe tu código aquí..."></textarea>
+            <button onclick="interpretarCodigo()" class="btn-ejecutar">Ejecutar Código</button>
+        </section>
+
+        <section class="resultado">
+            <h2>Resultado:</h2>
+            <pre id="resultado"></pre>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Ponky, el intérprete de código.</p>
+        </footer>
+    </div>
+
+    <script>
+        async function interpretarCodigo() {
+            const codigo = document.getElementById("codigo").value;
+            const resultadoDiv = document.getElementById("resultado");
+
+            try {
+                const response = await fetch("/interpretar", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ codigo })
+                });
+
+                const data = await response.json();
+                if (data.error) {
+                    resultadoDiv.textContent = `Error: ${data.error}`;
+                } else {
+                    resultadoDiv.textContent = data.output;
+                }
+            } catch (err) {
+                resultadoDiv.textContent = `Error: ${err.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
+
